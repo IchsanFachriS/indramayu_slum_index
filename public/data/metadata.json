@@ -49,92 +49,65 @@
   "layers": [
     {
       "id": 1,
-      "name": "Kepadatan Bangunan",
-      "file": "kepadatan_bangunan_4326_fill.tif",
-      "description": "Tingkat kepadatan bangunan per hektar",
-      "parameter": "Jumlah bangunan/ha",
-      "source": "Survey Lapangan 2024"
+      "name": "Ketidakteraturan Bangunan",
+      "file": "ketidakteraturan_bangunan_4326.tif"
     },
     {
       "id": 2,
-      "name": "Kondisi Jalan Lingkungan",
-      "file": "kondisi_jalan.tif",
-      "description": "Kualitas jalan lingkungan di permukiman",
-      "parameter": "Kondisi perkerasan jalan",
-      "source": "Survey Lapangan 2024"
+      "name": "Kepadatan Bangunan",
+      "file": "kepadatan_bangunan_4326.tif"
     },
     {
       "id": 3,
-      "name": "Akses Air Minum",
-      "file": "akses_air_minum.tif",
-      "description": "Ketersediaan akses air minum layak",
-      "parameter": "Persentase akses air bersih",
-      "source": "Data PDAM & Survey 2024"
+      "name": "Kepadatan Penduduk",
+      "file": "kepadatan_penduduk_4326_fill.tif"
     },
     {
       "id": 4,
-      "name": "Drainase Lingkungan",
-      "file": "drainase.tif",
-      "description": "Kondisi sistem drainase lingkungan",
-      "parameter": "Kualitas saluran drainase",
-      "source": "Survey Lapangan 2024"
+      "name": "Rasio Panjang Jalan",
+      "file": "rasio_panjang_jalan_4326.tif"
     },
     {
       "id": 5,
-      "name": "Sanitasi",
-      "file": "sanitasi.tif",
-      "description": "Kondisi sanitasi dan MCK",
-      "parameter": "Ketersediaan MCK layak",
-      "source": "Survey Lapangan 2024"
+      "name": "Kerapatan Jaringan Jalan",
+      "file": "kerapatan_jaringan_jalan_4326.tif"
     },
     {
       "id": 6,
-      "name": "Pengelolaan Sampah",
-      "file": "pengelolaan_sampah.tif",
-      "description": "Sistem pengelolaan sampah permukiman",
-      "parameter": "Cakupan pengelolaan sampah",
-      "source": "Dinas Lingkungan Hidup 2024"
+      "name": "Kemampuan Mengalirkan Limpasan Air",
+      "file": "ketidakmampuan_limpasan_air_4326.tif"
     },
     {
       "id": 7,
-      "name": "Legalitas Lahan",
-      "file": "legalitas_lahan.tif",
-      "description": "Status legalitas lahan permukiman",
-      "parameter": "Persentase lahan legal",
-      "source": "BPN & Survey 2024"
+      "name": "Ketersediaan Drainase",
+      "file": "ketersediaan_drainase_4326.tif"
     },
     {
       "id": 8,
-      "name": "Kepadatan Penduduk",
-      "file": "kepadatan_penduduk.tif",
-      "description": "Tingkat kepadatan penduduk per hektar",
-      "parameter": "Jiwa/ha",
-      "source": "BPS Kabupaten Indramayu 2024"
+      "name": "Pengelolaan Air Limbah",
+      "file": "pengelolaan_limbah_4326.tif"
     },
     {
       "id": 9,
-      "name": "Keteraturan Bangunan",
-      "file": "keteraturan_bangunan.tif",
-      "description": "Pola dan keteraturan tata letak bangunan",
-      "parameter": "Indeks keteraturan",
-      "source": "Analisis Citra & Survey 2024"
+      "name": "Pengelolaan Sampah",
+      "file": "pengelolaan_sampah_4326.tif"
     },
     {
       "id": 10,
-      "name": "Bahaya Kebakaran",
-      "file": "bahaya_kebakaran.tif",
-      "description": "Tingkat risiko bahaya kebakaran",
-      "parameter": "Indeks risiko kebakaran",
-      "source": "BPBD & Damkar 2024"
+      "name": "Ketersediaan Akses Air Minum",
+      "file": "akses_air_minum_4326.tif"
     },
     {
       "id": 11,
-      "name": "Indeks Kekumuhan Gabungan",
-      "file": "indeks_gabungan.tif",
-      "description": "Indeks kekumuhan terintegrasi dari semua parameter",
-      "parameter": "Indeks komposit 1-5",
-      "source": "Hasil Analisis 2024"
+      "name": "Proteksi Kebakaran",
+      "file": "proteksi_kebakaran_4326.tif"
+    },
+    {
+      "id": 12,
+      "name": "Peta Indeks Kekumuhan Kabupaten Indramayu",
+      "file": "indramayu_kumuh.tif"
     }
+
   ],
   "credits": {
     "data": "Pemerintah Kabupaten Indramayu",
