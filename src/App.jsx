@@ -34,13 +34,13 @@ function App() {
 
   if (error) {
     return (
-      <div className="w-full h-screen flex items-center justify-center bg-gray-100">
-        <div className="bg-white p-8 rounded-lg shadow-lg max-w-md">
+      <div className="w-full h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-slate-100">
+        <div className="bg-white p-8 rounded-xl shadow-2xl max-w-md border border-red-200">
           <h2 className="text-xl font-bold text-red-600 mb-4">Error Loading Application</h2>
-          <p className="text-gray-700">{error}</p>
+          <p className="text-gray-700 mb-4">{error}</p>
           <button 
             onClick={() => window.location.reload()}
-            className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+            className="w-full px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-lg hover:from-blue-700 hover:to-cyan-700 transition-all duration-200 font-medium shadow-lg"
           >
             Reload Page
           </button>

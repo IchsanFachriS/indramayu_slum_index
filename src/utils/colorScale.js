@@ -1,5 +1,5 @@
 /**
- * Convert hex color to RGB object
+ * Convert hex color to RGB object with FULL OPACITY
  * @param {string} hex - Hex color code (e.g., '#ff0000')
  * @returns {object} - RGB object with r, g, b, a properties
  */
@@ -9,7 +9,7 @@ export function hexToRgb(hex) {
     r: parseInt(result[1], 16),
     g: parseInt(result[2], 16),
     b: parseInt(result[3], 16),
-    a: 255
+    a: 255 // ALWAYS 255 for SOLID colors
   } : { r: 0, g: 0, b: 0, a: 255 };
 }
 
@@ -17,7 +17,7 @@ export function hexToRgb(hex) {
  * Get color for a classification value
  * @param {number} value - Classification value (1-5)
  * @param {object} classification - Classification configuration from metadata
- * @returns {object} - RGBA color object
+ * @returns {object} - RGBA color object with SOLID opacity
  */
 export function getColorForValue(value, classification) {
   // Default colors if classification not provided
@@ -32,20 +32,24 @@ export function getColorForValue(value, classification) {
   const classValue = Math.max(1, Math.min(5, Math.round(value)));
   
   let hexColor;
-  if (classification && classification.values && classification.values[classValue]) {
-    hexColor = classification.values[classValue].color;
+  if (classification && classification[classValue]) {
+    hexColor = classification[classValue].color;
   } else {
     hexColor = defaultColors[classValue];
   }
 
-  return hexToRgb(hexColor);
+  const color = hexToRgb(hexColor);
+  // Ensure alpha is always 255 (SOLID)
+  color.a = 255;
+  
+  return color;
 }
 
 /**
  * Create color ramp for continuous values
  * @param {number} value - Value between 0 and 1
  * @param {object} classification - Classification configuration
- * @returns {object} - RGBA color object
+ * @returns {object} - RGBA color object with SOLID opacity
  */
 export function getColorRamp(value, classification) {
   // Normalize to 1-5 scale
@@ -65,8 +69,8 @@ export function getColorScale(classification) {
     const color = getColorForValue(i, classification);
     scale.push({
       value: i,
-      color: `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a / 255})`,
-      label: classification?.values?.[i]?.label || `Class ${i}`
+      color: `rgba(${color.r}, ${color.g}, ${color.b}, 1)`, // Opacity 1 = SOLID
+      label: classification?.[i]?.label || `Class ${i}`
     });
   }
   
@@ -78,19 +82,19 @@ export function getColorScale(classification) {
  * @param {object} color1 - First RGB color
  * @param {object} color2 - Second RGB color
  * @param {number} factor - Interpolation factor (0-1)
- * @returns {object} - Interpolated RGBA color
+ * @returns {object} - Interpolated RGBA color with SOLID opacity
  */
 export function interpolateColor(color1, color2, factor) {
   return {
     r: Math.round(color1.r + (color2.r - color1.r) * factor),
     g: Math.round(color1.g + (color2.g - color1.g) * factor),
     b: Math.round(color1.b + (color2.b - color1.b) * factor),
-    a: Math.round(color1.a + (color2.a - color1.a) * factor)
+    a: 255 // ALWAYS SOLID
   };
 }
 
 /**
- * Apply opacity to color
+ * Apply opacity to color (NOT USED for data pixels, only for special cases)
  * @param {object} color - RGBA color object
  * @param {number} opacity - Opacity value (0-1)
  * @returns {object} - RGBA color with applied opacity
@@ -98,6 +102,6 @@ export function interpolateColor(color1, color2, factor) {
 export function applyOpacity(color, opacity) {
   return {
     ...color,
-    a: Math.round(color.a * opacity)
+    a: Math.round(255 * opacity)
   };
 }

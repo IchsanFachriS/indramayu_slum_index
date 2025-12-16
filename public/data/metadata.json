@@ -2,7 +2,7 @@
   "project": {
     "title": "WebGIS Indeks Kekumuhan Kabupaten Indramayu",
     "description": "Pemetaan dan analisis tingkat kekumuhan permukiman di Kabupaten Indramayu",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "created": "2024-12-16",
     "lastUpdated": "2024-12-16"
   },
@@ -18,31 +18,31 @@
   },
   "classification": {
     "scale": "1-5",
-    "values": {
+    "default": {
       "1": {
-        "label": "Sangat Kumuh",
+        "label": "Sangat Buruk",
         "color": "#d32f2f",
-        "description": "Kondisi permukiman sangat buruk, memerlukan penanganan segera"
+        "description": "Kondisi sangat buruk"
       },
       "2": {
-        "label": "Kumuh",
+        "label": "Buruk",
         "color": "#f57c00",
-        "description": "Kondisi permukiman buruk, memerlukan perbaikan"
+        "description": "Kondisi buruk"
       },
       "3": {
         "label": "Sedang",
         "color": "#fbc02d",
-        "description": "Kondisi permukiman cukup, masih memerlukan peningkatan"
+        "description": "Kondisi sedang"
       },
       "4": {
         "label": "Baik",
         "color": "#7cb342",
-        "description": "Kondisi permukiman baik"
+        "description": "Kondisi baik"
       },
       "5": {
         "label": "Sangat Baik",
         "color": "#388e3c",
-        "description": "Kondisi permukiman sangat baik"
+        "description": "Kondisi sangat baik"
       }
     }
   },
@@ -50,64 +50,160 @@
     {
       "id": 1,
       "name": "Ketidakteraturan Bangunan",
-      "file": "ketidakteraturan_bangunan_4326.tif"
+      "file": "ketidakteraturan_bangunan_4326.tif",
+      "category": "parameter",
+      "classification": {
+        "1": { "label": "Sangat Tidak Teratur", "color": "#d32f2f", "description": "Bangunan sangat tidak teratur" },
+        "2": { "label": "Tidak Teratur", "color": "#f57c00", "description": "Bangunan tidak teratur" },
+        "3": { "label": "Cukup Teratur", "color": "#fbc02d", "description": "Bangunan cukup teratur" },
+        "4": { "label": "Teratur", "color": "#7cb342", "description": "Bangunan teratur" },
+        "5": { "label": "Sangat Teratur", "color": "#388e3c", "description": "Bangunan sangat teratur" }
+      }
     },
     {
       "id": 2,
       "name": "Kepadatan Bangunan",
-      "file": "kepadatan_bangunan_4326.tif"
+      "file": "kepadatan_bangunan_4326.tif",
+      "category": "parameter",
+      "classification": {
+        "1": { "label": "Sangat Padat", "color": "#d32f2f", "description": "Bangunan sangat padat/rapat" },
+        "2": { "label": "Padat", "color": "#f57c00", "description": "Bangunan padat" },
+        "3": { "label": "Cukup Padat", "color": "#fbc02d", "description": "Bangunan cukup padat" },
+        "4": { "label": "Jarang", "color": "#7cb342", "description": "Bangunan jarang" },
+        "5": { "label": "Sangat Jarang", "color": "#388e3c", "description": "Bangunan sangat jarang/ideal" }
+      }
     },
     {
       "id": 3,
       "name": "Kepadatan Penduduk",
-      "file": "kepadatan_penduduk_4326_fill.tif"
+      "file": "kepadatan_penduduk_4326_fill.tif",
+      "category": "parameter",
+      "classification": {
+        "1": { "label": "Sangat Padat", "color": "#d32f2f", "description": "Penduduk sangat padat" },
+        "2": { "label": "Padat", "color": "#f57c00", "description": "Penduduk padat" },
+        "3": { "label": "Cukup Padat", "color": "#fbc02d", "description": "Penduduk cukup padat" },
+        "4": { "label": "Sedang", "color": "#7cb342", "description": "Kepadatan penduduk sedang" },
+        "5": { "label": "Ideal", "color": "#388e3c", "description": "Kepadatan penduduk ideal" }
+      }
     },
     {
       "id": 4,
       "name": "Rasio Panjang Jalan",
-      "file": "rasio_panjang_jalan_4326.tif"
+      "file": "rasio_panjang_jalan_4326.tif",
+      "category": "parameter",
+      "classification": {
+        "1": { "label": "Sangat Kurang", "color": "#d32f2f", "description": "Rasio jalan sangat kurang" },
+        "2": { "label": "Kurang", "color": "#f57c00", "description": "Rasio jalan kurang" },
+        "3": { "label": "Cukup", "color": "#fbc02d", "description": "Rasio jalan cukup" },
+        "4": { "label": "Baik", "color": "#7cb342", "description": "Rasio jalan baik" },
+        "5": { "label": "Sangat Baik", "color": "#388e3c", "description": "Rasio jalan sangat baik" }
+      }
     },
     {
       "id": 5,
       "name": "Kerapatan Jaringan Jalan",
-      "file": "kerapatan_jaringan_jalan_4326.tif"
+      "file": "kerapatan_jaringan_jalan_4326.tif",
+      "category": "parameter",
+      "classification": {
+        "1": { "label": "Sangat Kurang", "color": "#d32f2f", "description": "Jaringan jalan sangat kurang" },
+        "2": { "label": "Kurang", "color": "#f57c00", "description": "Jaringan jalan kurang" },
+        "3": { "label": "Cukup", "color": "#fbc02d", "description": "Jaringan jalan cukup" },
+        "4": { "label": "Baik", "color": "#7cb342", "description": "Jaringan jalan baik" },
+        "5": { "label": "Sangat Baik", "color": "#388e3c", "description": "Jaringan jalan sangat baik" }
+      }
     },
     {
       "id": 6,
       "name": "Kemampuan Mengalirkan Limpasan Air",
-      "file": "ketidakmampuan_limpasan_air_4326.tif"
+      "file": "ketidakmampuan_limpasan_air_4326.tif",
+      "category": "parameter",
+      "classification": {
+        "1": { "label": "Sangat Buruk", "color": "#d32f2f", "description": "Tidak mampu mengalirkan air" },
+        "2": { "label": "Buruk", "color": "#f57c00", "description": "Kurang mampu mengalirkan air" },
+        "3": { "label": "Cukup", "color": "#fbc02d", "description": "Cukup mampu mengalirkan air" },
+        "4": { "label": "Baik", "color": "#7cb342", "description": "Mampu mengalirkan air" },
+        "5": { "label": "Sangat Baik", "color": "#388e3c", "description": "Sangat mampu mengalirkan air" }
+      }
     },
     {
       "id": 7,
       "name": "Ketersediaan Drainase",
-      "file": "ketersediaan_drainase_4326.tif"
+      "file": "ketersediaan_drainase_4326.tif",
+      "category": "parameter",
+      "classification": {
+        "1": { "label": "Tidak Tersedia", "color": "#d32f2f", "description": "Drainase tidak tersedia" },
+        "2": { "label": "Sangat Kurang", "color": "#f57c00", "description": "Drainase sangat kurang" },
+        "3": { "label": "Kurang", "color": "#fbc02d", "description": "Drainase kurang memadai" },
+        "4": { "label": "Memadai", "color": "#7cb342", "description": "Drainase memadai" },
+        "5": { "label": "Sangat Memadai", "color": "#388e3c", "description": "Drainase sangat memadai" }
+      }
     },
     {
       "id": 8,
       "name": "Pengelolaan Air Limbah",
-      "file": "pengelolaan_limbah_4326.tif"
+      "file": "pengelolaan_limbah_4326.tif",
+      "category": "parameter",
+      "classification": {
+        "1": { "label": "Sangat Buruk", "color": "#d32f2f", "description": "Pengelolaan air limbah sangat buruk" },
+        "2": { "label": "Buruk", "color": "#f57c00", "description": "Pengelolaan air limbah buruk" },
+        "3": { "label": "Cukup", "color": "#fbc02d", "description": "Pengelolaan air limbah cukup" },
+        "4": { "label": "Baik", "color": "#7cb342", "description": "Pengelolaan air limbah baik" },
+        "5": { "label": "Sangat Baik", "color": "#388e3c", "description": "Pengelolaan air limbah sangat baik" }
+      }
     },
     {
       "id": 9,
       "name": "Pengelolaan Sampah",
-      "file": "pengelolaan_sampah_4326.tif"
+      "file": "pengelolaan_sampah_4326.tif",
+      "category": "parameter",
+      "classification": {
+        "1": { "label": "Sangat Buruk", "color": "#d32f2f", "description": "Pengelolaan sampah sangat buruk" },
+        "2": { "label": "Buruk", "color": "#f57c00", "description": "Pengelolaan sampah buruk" },
+        "3": { "label": "Cukup", "color": "#fbc02d", "description": "Pengelolaan sampah cukup" },
+        "4": { "label": "Baik", "color": "#7cb342", "description": "Pengelolaan sampah baik" },
+        "5": { "label": "Sangat Baik", "color": "#388e3c", "description": "Pengelolaan sampah sangat baik" }
+      }
     },
     {
       "id": 10,
       "name": "Ketersediaan Akses Air Minum",
-      "file": "akses_air_minum_4326.tif"
+      "file": "akses_air_minum_4326.tif",
+      "category": "parameter",
+      "classification": {
+        "1": { "label": "Tidak Tersedia", "color": "#d32f2f", "description": "Akses air minum tidak tersedia" },
+        "2": { "label": "Sangat Kurang", "color": "#f57c00", "description": "Akses air minum sangat kurang" },
+        "3": { "label": "Kurang", "color": "#fbc02d", "description": "Akses air minum kurang" },
+        "4": { "label": "Memadai", "color": "#7cb342", "description": "Akses air minum memadai" },
+        "5": { "label": "Sangat Memadai", "color": "#388e3c", "description": "Akses air minum sangat memadai" }
+      }
     },
     {
       "id": 11,
       "name": "Proteksi Kebakaran",
-      "file": "proteksi_kebakaran_4326.tif"
+      "file": "proteksi_kebakaran_4326.tif",
+      "category": "parameter",
+      "classification": {
+        "1": { "label": "Tidak Ada", "color": "#d32f2f", "description": "Proteksi kebakaran tidak ada" },
+        "2": { "label": "Sangat Kurang", "color": "#f57c00", "description": "Proteksi kebakaran sangat kurang" },
+        "3": { "label": "Kurang", "color": "#fbc02d", "description": "Proteksi kebakaran kurang" },
+        "4": { "label": "Memadai", "color": "#7cb342", "description": "Proteksi kebakaran memadai" },
+        "5": { "label": "Sangat Memadai", "color": "#388e3c", "description": "Proteksi kebakaran sangat memadai" }
+      }
     },
     {
       "id": 12,
-      "name": "Peta Indeks Kekumuhan Kabupaten Indramayu",
-      "file": "indramayu_kumuh.tif"
+      "name": "Indeks Kekumuhan Kabupaten Indramayu",
+      "file": "indramayu_kumuh.tif",
+      "category": "composite",
+      "isComposite": true,
+      "classification": {
+        "1": { "label": "Sangat Kumuh", "color": "#d32f2f", "description": "Kondisi permukiman sangat kumuh, memerlukan penanganan segera" },
+        "2": { "label": "Kumuh", "color": "#f57c00", "description": "Kondisi permukiman kumuh, memerlukan perbaikan" },
+        "3": { "label": "Sedang", "color": "#fbc02d", "description": "Kondisi permukiman sedang, masih memerlukan peningkatan" },
+        "4": { "label": "Baik", "color": "#7cb342", "description": "Kondisi permukiman baik" },
+        "5": { "label": "Sangat Baik", "color": "#388e3c", "description": "Kondisi permukiman sangat baik" }
+      }
     }
-
   ],
   "credits": {
     "data": "Pemerintah Kabupaten Indramayu",

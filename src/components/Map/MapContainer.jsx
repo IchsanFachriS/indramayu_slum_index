@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { MapContainer as LeafletMap, TileLayer, LayersControl } from 'react-leaflet';
+import { MapContainer as LeafletMap, TileLayer } from 'react-leaflet';
 import LayerControl from './LayerControl.jsx';
 import Legend from './Legend';
-import InfoPanel from './InfoPanel';
 import GeoTIFFLayer from './GeoTIFFLayer';
 import 'leaflet/dist/leaflet.css';
 
 const MapContainer = ({ metadata }) => {
-  const [activeLayer, setActiveLayer] = useState(11);
-  const [visibleLayers, setVisibleLayers] = useState([11]);
+  const [activeLayer, setActiveLayer] = useState(12); // Default layer ID 12
+  const [visibleLayers, setVisibleLayers] = useState([12]); // Default visible layer
   const [layersData, setLayersData] = useState([]);
 
   useEffect(() => {
@@ -35,13 +34,17 @@ const MapContainer = ({ metadata }) => {
   const center = metadata?.area?.center || [-6.35, 108.15];
   const zoom = metadata?.area?.defaultZoom || 11;
 
+  // Get current active layer data for dynamic legend
+  const currentLayer = layersData.find(layer => layer.id === activeLayer);
+
   return (
-    <div className="w-full h-full relative">
+    <div className="w-full h-full relative bg-gradient-to-br from-blue-50 to-slate-100">
       <LeafletMap
         center={center}
         zoom={zoom}
         className="w-full h-full"
         zoomControl={true}
+        style={{ zIndex: 0 }}
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -55,7 +58,8 @@ const MapContainer = ({ metadata }) => {
               key={layer.id}
               layer={layer}
               bounds={metadata?.area?.bounds}
-              classification={metadata?.classification}
+              classification={layer.classification || metadata?.classification?.default}
+              isActive={layer.id === activeLayer}
             />
           )
         ))}
@@ -70,12 +74,18 @@ const MapContainer = ({ metadata }) => {
         onToggleVisibility={toggleLayerVisibility}
       />
       
-      <InfoPanel metadata={metadata} />
-      <Legend classification={metadata?.classification} />
+      {/* Dynamic Legend - berubah sesuai active layer */}
+      <Legend 
+        classification={currentLayer?.classification || metadata?.classification?.default}
+        layerName={currentLayer?.name}
+        isComposite={currentLayer?.isComposite}
+        scale={metadata?.classification?.scale}
+      />
 
-      {/* Watermark */}
-      <div className="absolute bottom-4 left-4 bg-white bg-opacity-75 px-3 py-1 rounded text-xs text-gray-600 z-[1000]">
-        © 2024 WebGIS Kabupaten Indramayu
+      {/* Modern Watermark */}
+      <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg text-xs text-gray-700 z-[1000] flex items-center gap-2">
+        <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
+        <span className="font-medium">© 2024 WebGIS Kabupaten Indramayu</span>
       </div>
     </div>
   );
